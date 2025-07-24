@@ -1,0 +1,62 @@
+; Equilibration Phase-2: Robust temperature and pressure coupling
+; NPT equilibration parameters (isothermal-isobaric ensemble)
+
+; Run parameters
+integrator          = md            ;
+tinit               = 0             ; initial time (ps)
+dt                  = 0.001         ; time step (ps) (1 fs)
+nsteps              = 30000000      ; number of steps (30 ns)
+
+; Constraints
+constraint_algorithm = lincs        ; default constraint algorithm
+constraints          = h-bonds      ; constrain bonds involving hydrogens
+lincs_order          = 4            ; default LINCS order
+
+; Center of mass motion removal
+comm_mode           = Linear        ; remove linear COM motion
+
+; Output control
+nstxout             = 1000000       ; write coordinates every 1000 ps
+nstvout             = 1000000       ; write velocities every 1000 ps
+nstlog              = 100000        ; write energies to log every 100 ps
+nstenergy           = 100000        ; write energies to energy file every 100 ps
+;nstxtcout          = 1000          ; write .xtc trajectory
+
+; Neighbor searching
+nstlist             = 10            ; neighbor list update frequency (steps)
+ns-type             = grid          ; grid-based neighbor search
+pbc                 = xyz           ; 3D periodic boundary conditions
+periodic_molecules  = no            ; do not treat molecules as whole for PBC
+rlist               = 1.2           ; neighbor list cutoff (nm)
+
+; Electrostatics
+coulombtype         = PME           ; Particle Mesh Ewald
+rcoulomb            = 1.2           ; short-range electrostatic cutoff (nm)
+fourierspacing      = 0.12          ; FFT grid spacing (nm)
+
+; van der Waals
+vdwtype             = cut-off       ; cutoff for van der Waals
+rvdw                = 1.2           ; van der Waals cutoff (nm)
+DispCorr            = EnerPres      ; long-range dispersion correction for energy and pressure
+
+; Temperature coupling
+tcoupl              = Nose-Hoover   ; Nose-Hoover thermostat
+nsttcouple          = -1            ; default: equal to nstlist
+tc-grps             = System        ; couple entire system
+tau-t               = 0.5           ; time constant for coupling (ps)
+ref-t               = 300           ; reference temperature (K)
+
+; Velocity generation
+;gen-vel             = yes           ; generate velocities
+;gen-temp            = 300           ; temperature for velocity generation (K)
+;gen_seed            = -1            ; random seed (-1: use PID)
+
+continuation        = yes           ;
+
+; Pressure coupling
+pcoupl              = Parrinello-Rahman ; Parrinello-Rahman barostat
+pcoupltype          = isotropic     ; isotropic pressure coupling
+ref-p               = 1.0           ; reference pressure (bar)
+nstpcouple          = -1            ; default: equal to nstlist
+tau-p               = 5.0           ; pressure coupling time constant (ps)
+compressibility     = 4.5e-5        ; isothermal compressibility (bar^-1)

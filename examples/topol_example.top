@@ -1,0 +1,44 @@
+;
+; Reference topology file for ACP polymer simulations
+; Supporting: "Origins of Enhanced Ion Transport in Nanostructured Anion Conducting Polyelectrolytes"
+;
+; This is a standalone topology file
+;
+; Created by GROMACS pdb2gmx with modified OPLS-AA force field
+;
+; Note:
+; The force field must either be present in the current directory, or the location
+; specified in the GMXLIB path variable or with the 'include' mdp file option.
+;
+
+; Include forcefield parameters
+#include "oplsaa.ff/forcefield.itp"
+
+; Include component topology
+
+; for VAP-ACP polymer system
+#include "oplsaa.ff/vap.itp"
+; for H-ROMP-ACP polymer system
+#include "oplsaa.ff/hromp.itp"
+
+#include "oplsaa.ff/BR.itp"
+
+; Include water topology
+#include "oplsaa.ff/spce.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+[ system ]
+; Name
+PQ
+
+[ molecules ]
+; Compound        #mols
+pqabnb              25
+BR-               1000
+;SOL               2000        ; water (if present)

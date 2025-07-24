@@ -1,0 +1,33 @@
+type_name_in_il.ff      type_name_in_gromacs
+
+mapdic['N4'] = 'N4'   
+mapdic['CN'] = 'CN'
+mapdic['CD'] = 'CD'
+mapdic['HN'] = 'HN'
+mapdic['CB3'] = 'opls_135' 
+mapdic['CB21'] = 'opls_136'
+mapdic['CB22'] = 'opls_136'
+mapdic['CB11'] = 'opls_137'
+mapdic['CB12'] = 'opls_137'
+mapdic['CB13'] = 'opls_137'
+mapdic['CC'] = 'opls_136'
+mapdic['HC'] = 'opls_140'
+
+; opls_135   CT  6     12.01100    -0.180       A    3.50000e-01  2.76144e-01
+; opls_136   CT  6     12.01100    -0.120       A    3.50000e-01  2.76144e-01
+; opls_137   CT  6     12.01100    -0.060       A    3.50000e-01  2.76144e-01
+; opls_140   HC  1      1.00800     0.060       A    2.50000e-01  1.25520e-01
+
+
+chargedic['N4'] = '0.12'
+chargedic['CN'] = '-0.17'
+chargedic['CD'] = '0.01'
+chargedic['HN'] = '0.13'
+chargedic['CB3'] = '-0.18'
+chargedic['CB21'] = '-0.12'
+chargedic['CB22'] = '-0.12'
+chargedic['CB11'] = '-0.06'
+chargedic['CB12'] = '-0.06'
+chargedic['CB13'] = '-0.06'
+chargedic['CC'] = '-0.12'
+chargedic['HC'] = '0.06'
