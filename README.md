@@ -7,7 +7,6 @@ This repository contains the complete simulation setup, force field parameters, 
 ## Table of Contents
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
-- [Demo](#demo)
 - [Usage Instructions](#usage-instructions)
 - [Repository Structure](#repository-structure)
 
@@ -43,16 +42,6 @@ This software has been tested on:
 - Repository setup: < 1 minute
 - GROMACS installation: varies by system (see official documentation)
 
-## Demo
-
-### Quick Demo
-See detailed instructions in the [`examples/README.md`](examples/README.md) file.
-
-**Basic demo workflow**:
-1. Navigate to examples directory
-2. Follow the step-by-step instructions for system setup
-3. Run basic GROMACS commands to generate topology and simulation box
-
 
 ## Usage Instructions
 
@@ -63,6 +52,13 @@ For complete simulation workflows, please refer to the detailed documentation in
 2. **Topology Generation**: Apply modified OPLS-AA force field
 3. **Simulation**: Follow standard GROMACS simulation protocol
 4. **Analysis**: Use provided analysis tools or standard GROMACS utilities
+
+### Force Field Details
+
+This simulation uses a modified OPLS-AA force field specifically parameterized for anion conducting polyelectrolytes. The force field parameters are located in the `force_field/oplsaa.ff/` directory.
+
+For detailed parameter definitions and validation, please refer to the research paper.
+
 
 For GROMACS-specific commands and procedures, consult the [official GROMACS documentation](https://manual.gromacs.org/).
 
@@ -85,10 +81,4 @@ Nano-ACP/
     ├── topol_example.top       # Example topology file
     └── README.md               # Detailed workflow instructions
 ```
-
-## Force Field Details
-
-This simulation uses a modified OPLS-AA force field specifically parameterized for anion conducting polyelectrolytes. The force field parameters are located in the `force_field/oplsaa.ff/` directory.
-
-For detailed parameter definitions and validation, please refer to the research paper.
 
